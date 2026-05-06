@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  padding: 35px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.search-box {
+  width: 300px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tender-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+.tender-table thead {
+  background: #efefef;
+}
+
+.tender-table th {
+  padding: 18px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #7b2e00;
+  font-size: 15px;
+}
+
+.tender-table td {
+  padding: 18px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tender-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.tender-title-link {
+  color: #d35400;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.tender-title-link:hover {
+  text-decoration: underline;
+}
+
+.tender-id {
+  margin-top: 8px;
+  color: #555;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
