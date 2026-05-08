@@ -12,7 +12,7 @@ function Dashboard() {
 
   const fetchTenders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/tenders");
+      const response = await axios.get("https://tender-platform-d2tv.onrender.com/api/tenders");
 
       setTenders(response.data);
     } catch (error) {
