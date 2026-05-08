@@ -9,40 +9,22 @@ const checkTenders = require("./services/tenderChecker");
 
 const app = express();
 
-app.use(cors());
-
+app.use(cors(
+  {
+    origin: "https://tender-platform-brown.vercel.app"
+  }
+));
 app.use(express.json());
 
 // Routes
 app.use("/api/tenders", tenderRoutes);
 
-// Home route
+// Test route
 app.get("/", (req, res) => {
   res.send("Tender Notification System Running");
 });
 
-// Manual scraper route
-app.get("/run-scraper", async (req, res) => {
-  try {
-
-    await checkTenders();
-
-    res.json({
-      success: true,
-      message: "Scraper executed successfully"
-    });
-
-  } catch (error) {
-
-    res.json({
-      success: false,
-      error: error.message
-    });
-
-  }
-});
-
-// Run scraper once on startup
+// Run scraper once on server start
 checkTenders();
 
 const PORT = process.env.PORT || 5000;
