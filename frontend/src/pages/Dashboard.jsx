@@ -12,7 +12,11 @@ function Dashboard() {
 
   const fetchTenders = async () => {
     try {
-      const response = await axios.get("https://tender-platform-d2tv.onrender.com/api/tenders");
+      // const response = await axios.get("https://tender-platform-d2tv.onrender.com/api/tenders");
+
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/tenders`,
+      );
 
       setTenders(response.data);
     } catch (error) {
@@ -96,13 +100,9 @@ function Dashboard() {
               <tr key={tender.id}>
                 <td>{index + 1}</td>
 
-                <td>
-                  {formatDate(tender.publish_date)}
-                </td>
+                <td>{formatDate(tender.publish_date)}</td>
 
-                <td>
-                  {formatDate(tender.bid_open_date)}
-                </td>
+                <td>{formatDate(tender.bid_open_date)}</td>
 
                 {/* <td>
                   {formatDate(tender.closing_date)}
@@ -111,7 +111,8 @@ function Dashboard() {
                 <td>
                   <Link
                     to={`/tender/${tender.id}`}
-                    className="tender-title-link" target="_blank"
+                    className="tender-title-link"
+                    target="_blank"
                   >
                     {tender.title}
                   </Link>
@@ -119,9 +120,7 @@ function Dashboard() {
                   <div className="tender-id">[{tender.tender_id || "N/A"}]</div>
                 </td>
 
-                <td>
-                  {tender.source || tender.department || "N/A"}
-                </td>
+                <td>{tender.source || tender.department || "N/A"}</td>
 
                 {/* <td>
                   {tender.organisation_chain || tender.department || "N/A"}

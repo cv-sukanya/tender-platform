@@ -13,8 +13,12 @@ function TenderDetails() {
 
   const fetchTender = async () => {
     try {
+      // const response = await axios.get(
+      //   `https://tender-platform-d2tv.onrender.com/api/tenders/${id}`,
+      // );
+
       const response = await axios.get(
-        `https://tender-platform-d2tv.onrender.com/api/tenders/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/tenders`,
       );
 
       setTender(response.data);
@@ -150,16 +154,17 @@ function TenderDetails() {
             <strong>Pincode:</strong> {tender.pincode}
           </p>
 
-
           <p>
             <strong>Publish Date:</strong> {formatDate(tender.publish_date)}
           </p>
 
           <p>
-            <strong>Document Download / Sale Start Date:</strong> {formatDate(tender.document_start_date)}
+            <strong>Document Download / Sale Start Date:</strong>{" "}
+            {formatDate(tender.document_start_date)}
           </p>
           <p>
-            <strong>Document Download / Sale End Date:</strong> {formatDate(tender.closing_date)}
+            <strong>Document Download / Sale End Date:</strong>{" "}
+            {formatDate(tender.closing_date)}
           </p>
 
           <p>
@@ -167,7 +172,8 @@ function TenderDetails() {
           </p>
 
           <p>
-            <strong>Bid Submission End Date:</strong> {formatDate(tender.bid_end_date)}
+            <strong>Bid Submission End Date:</strong>{" "}
+            {formatDate(tender.bid_end_date)}
           </p>
 
           <p>
@@ -188,7 +194,8 @@ function TenderDetails() {
           <p>{tender.work_description || "No description available"}</p>
         </div>
 
-        <button style={{
+        <button
+          style={{
             display: "inline-block",
             marginTop: "30px",
             background: "#0d6efd",
@@ -202,7 +209,6 @@ function TenderDetails() {
           onClick={() => {
             window.open(tender.tender_link, "_blank", "noopener,noreferrer");
           }}
-          
         >
           View Tender
         </button>
