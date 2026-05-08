@@ -9,7 +9,11 @@ const checkTenders = require("./services/tenderChecker");
 
 const app = express();
 
-app.use(cors());
+app.use(cors(
+  {
+    origin: "https://tender-platform-brown.vercel.app/"
+  }
+));
 app.use(express.json());
 
 // Routes
